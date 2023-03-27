@@ -1,0 +1,110 @@
+<div class="w-75 m-auto py-5">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100
+            ">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img
+                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                    class="img-fluid" alt="Sample image">
+            </div>
+        </div>
+        <div *ngIf="error" class=" alert alert-danger text-center">
+            <p>{{error}}</p>
+        </div>
+
+        <form [formGroup]="registerForm"
+            (ngSubmit)="submintRegisterForm(registerForm)">
+
+            <div class="form-group">
+
+
+                <label for="userName">Username:</label>
+                <input formControlName="userName" class="form-control my-2"
+                    type="text" id="userName">
+                <div *ngIf="registerForm.get('userName')?.errors !=null
+                    &&registerForm.get('userName')?.touched"
+                    class="alert alert-danger my-2">
+
+                    <p
+                        *ngIf="registerForm.controls['userName']?.errors?.['required']">Username
+                        is required</p>
+                    <p
+                        *ngIf="registerForm.controls['userName']?.errors?.['minlength']">Username
+                        is minLength 3</p>
+                    <p
+                        *ngIf="registerForm.controls['userName']?.errors?.['maxlength']">Username
+                        is maxLength 10</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">age:</label>
+                <input formControlName="age" class="form-control my-2"
+                    type="number" id="age">
+                <div *ngIf="registerForm.get('age')?.errors !=null
+                    &&registerForm.get('age')?.touched"
+                    class="alert alert-danger my-2">
+
+
+                    <p
+                        *ngIf="registerForm.get('age')?.errors?.['required']">age
+                        is
+                        required</p>
+                    <p *ngIf="registerForm.get('age')?.errors?.['min']">age
+                        is
+                        min age 16</p>
+                    <p *ngIf="registerForm.get('age')?.errors?.['max']">age
+                        is
+                        max age 80</p>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input formControlName="email" class="form-control my-2"
+                    type="text" id="email">
+                <div *ngIf="registerForm.get('email')?.errors
+                    !=null&&registerForm.get('email')?.touched" class="alert
+                    alert-danger my-2">
+                    <p
+                        *ngIf="registerForm.get('email')?.errors?.['required']">email
+                        is required</p>
+                    <p *ngIf="registerForm.get('email')?.errors?.['email']">must
+                        be
+                        email</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input formControlName="password" class="form-control my-2"
+                    type="password" id="password">
+                <div *ngIf="registerForm.get('password')?.errors !=null
+                    &&registerForm.get('password')?.touched"
+                    class="alert alert-danger my-2">
+
+                    <p
+                        *ngIf="registerForm.get('password')?.errors?.['required']">password
+                        is required</p>
+                    <p
+                        *ngIf="registerForm.get('password')?.errors?.['pattern']">password
+                        must include upper and lower cases</p>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column mt-4">
+
+                <button [disabled]="registerForm.invalid" type="submit"
+                    class="btn btn-info btn-lg btn-block
+                    text-white">Register</button>
+            </div>
+
+
+
+        </form>
+
+
+
+
+    </div>

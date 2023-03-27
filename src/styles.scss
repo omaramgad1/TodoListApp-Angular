@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Open+Sans:ital,wght@1,700;1,800&display=swap');
+$bgcolor: #131722;
+
+$bg1ightBgColor : #24baef ;
+$bgTransparent : rgba(36, 186, 239, .6);
+$fontColor: #fff;
+$borderColor : #a8a8a83d ;
+$borderHeight : lpx;
+$secondFontColor : #949cb0;
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+
+body{
+height: 100%;
+background-color: $bgcolor;  
+color: $fontColor;  
+font-family: 'Montserrat Alternates', sans-serif;
+overflow-x: hidden;
+}
+
+a{
+    font-size: 25px;
+    color: $fontColor;
+    text-decoration: none;
+
+
+}
