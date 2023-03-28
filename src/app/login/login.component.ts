@@ -20,8 +20,9 @@ export class LoginComponent {
 
   }
   submintloginForm(loginForm: FormGroup) {
-    if (this._authService.login(loginForm.value))
+    if (this._authService.login(loginForm.value)) {
       this.router.navigate(['/todos']);
+    }
     else
       alert("user is not found");
   }

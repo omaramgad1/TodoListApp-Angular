@@ -24,5 +24,11 @@ export class NavBarComponent {
   }
 
 
+  isLogOut(): void {
+
+    this._authService.logout()
+
+
+  }
 
 }

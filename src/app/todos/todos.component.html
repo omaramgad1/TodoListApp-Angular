@@ -1,1 +1,28 @@
-<p>todos works!</p>
+<div class="container m-5 p-10 rounded mx-auto bg-dark ">
+    <div class="row m-1 p-4">
+        <div class="col">
+            <div class="p-1 h1 text-primary text-center mx-auto
+                display-inline-block me-2">
+                <i class="fa fa-check bg-primary text-white rounded p-2"></i>
+                <u>My Todo-s</u>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12">
+            <div class="input-group w-100 mb-2">
+                <input [(ngModel)]="inputToDoText" type="text"
+                    class="form-control" placeholder="Enter Todo.."
+                    aria-label="Enter Todo..."
+                    aria-describedby="button-addon2">
+                <button (click)="addToDo(inputToDoText)" class="btn btn
+                    btn-success w-25 p-3"
+                    type="button" id="button-addon2">Add</button>
+            </div>
+        </div>
+
+
+        <app-todo [toDos]="todos "></app-todo>
+
+    </div>
+</div>

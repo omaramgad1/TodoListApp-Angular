@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -6,12 +7,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
 
-  currentUser = new BehaviorSubject(null);
-
+  currentUser = new BehaviorSubject<any>(null);
   data: any = localStorage.getItem("users")
   users: any[] = JSON.parse(this.data) || [];
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
 
   login(formdata: any): boolean {
@@ -21,15 +21,13 @@ export class AuthService {
     if (found != -1) {
 
       this.currentUser.next(this.users[found]);
+      localStorage.setItem('currentUser', JSON.stringify(this.currentUser.getValue()));
       return true;
     }
     return false;
 
 
   }
-
-
-
 
 
   register(formdata: any): boolean {
@@ -44,7 +42,6 @@ export class AuthService {
       const user: object = {
         id: this.users.length === 0 ? 1 : this.users.length + 1,
         ...formdata,
-        isLoggedIn: false
       }
 
       this.users.push(user);
@@ -52,6 +49,14 @@ export class AuthService {
 
       return true;
     }
+  }
+
+  logout(): void {
+
+    this.currentUser.next(null);
+    localStorage.removeItem('currentUser');
+
+    this._router.navigate(['/login'])
   }
 
 }

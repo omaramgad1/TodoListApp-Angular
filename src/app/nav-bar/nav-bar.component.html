@@ -2,7 +2,7 @@
     <div class="container-xl">
         <!-- Logo -->
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" routerLink="todos">
             <img src="../../assets/906334.png" alt="Logo" width="50"
                 height="50" class="d-inline-block align-text-center">
             ToDo-List-App
@@ -29,13 +29,14 @@
                             Tasks</a>
                     </li>
                     <li *ngIf="isLoggedIn" class="nav-item">
-                        <a class="nav-link " routerLink="deleted-todos">Deleted
-                            Tasks</a>
-                    </li>
-                    <li *ngIf="isLoggedIn" class="nav-item">
                         <a class="nav-link " routerLink="completed-todos">Completed
                             Tasks</a>
                     </li>
+                    <li *ngIf="isLoggedIn" class="nav-item">
+                        <a class="nav-link " routerLink="deleted-todos">Deleted
+                            Tasks</a>
+                    </li>
+
 
                 </ul>
             </div>
@@ -56,7 +57,7 @@
 
                     <button type="button" class="btn btn-danger btn-lg
                         me-2 mb-2 "
-                        routerLink="logout">Logout </button>
+                        (click)=" isLogOut()">Logout </button>
                 </div>
 
 
