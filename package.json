@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "todo-list-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "server": "ts-node ./server/server.ts"
+    "server": "ts-node ./server/server.ts",
+    "compodoc": "npx compodoc -p tsconfig.doc.json"
   },
   "private": true,
   "dependencies": {
