@@ -1,4 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div *ngIf="isLoggedIn" class="p-2">
+
+        <span>
+            Welcome
+            {{currentUser.userName}}</span>
+    </div>
+    <div *ngIf="isLoggedIn" class="p-2">
+
+        <img src="assets\user.webp" class="img-fluid
+            rounded-circle" height="50px" width="50px" alt="User
+            Image">
+    </div>
     <div class="container-xl">
         <!-- Logo -->
 
@@ -20,20 +32,42 @@
             <!-- Nav -->
             <div class="navbar-nav mx-lg-auto ">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                    <li *ngIf="isLoggedIn" class="nav-item">
-                        <a class="nav-link " aria-current="page"
-                            routerLink="todos">Home</a>
+                    <li
+                        *ngIf="isLoggedIn" class="nav-item">
+                        <a class="nav-link"
+                            [routerLinkActive]="['active']"
+                            routerLink="todos"><span class="me-1">
+                                {{noPendding}}</span> <i class="fa-regular
+                                fa-clock me-1"></i>Pendding</a>
                     </li>
-                    <li *ngIf="isLoggedIn" class="nav-item">
-                        <a class="nav-link" routerLink="favourite-todos">Favourite
+
+                    <li
+                        *ngIf="isLoggedIn" class="nav-item">
+                        <a class="nav-link" routerLink="favourite-todos"
+                            [routerLinkActive]="['active']"><span class="me-1">
+                                {{noFav}}</span><i
+                                class="fa-regular
+                                fa-star me-1"></i>Favourite
                             Tasks</a>
                     </li>
-                    <li *ngIf="isLoggedIn" class="nav-item">
-                        <a class="nav-link " routerLink="completed-todos">Completed
+
+                    <li
+                        *ngIf="isLoggedIn" class="nav-item">
+                        <a class="nav-link " routerLink="completed-todos"
+                            [routerLinkActive]="['active']"><span class="me-1">{{noDone}}</span><i
+                                class="fa
+                                fa-check me-1 "></i>Completed
                             Tasks</a>
                     </li>
-                    <li *ngIf="isLoggedIn" class="nav-item">
-                        <a class="nav-link " routerLink="deleted-todos">Deleted
+
+                    <li
+                        *ngIf="isLoggedIn" class="nav-item">
+
+                        <a class="nav-link " routerLink="deleted-todos"
+                            [routerLinkActive]="['active']"><span class="me-1">
+                                {{noDeleted}}</span><i
+                                class="far
+                                fa-trash-alt me-1"></i>Deleted
                             Tasks</a>
                     </li>
 
@@ -59,9 +93,18 @@
                         me-2 mb-2 "
                         (click)=" isLogOut()">Logout </button>
                 </div>
+                <!--                 <div *ngIf="isLoggedIn" class="p-2 mt-2">
 
+                    <span>
+                        Welcome
+                        {{currentUser.userName}}</span>
+                </div>
+                <div *ngIf="isLoggedIn" class="p-2">
 
-
+                    <img src="assets\user.webp" class="img-fluid
+                        rounded-circle" height="50px" width="50px" alt="User
+                        Image">
+                </div> -->
             </div>
         </div>
 

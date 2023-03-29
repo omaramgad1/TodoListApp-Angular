@@ -23,6 +23,31 @@ export class TodosService {
     })
   }
 
+  getTodoDetails(id: number): any {
+
+    return this._todo.getValue().filter(todo => todo.id == id && todo.userId == this.currentUser.id)[0];
+  }
+  getNoCompleted(): number {
+
+    return this._todo.getValue().filter(todos => todos.status == status.DONE && todos.userId == this.currentUser.id).length;
+  }
+
+  getNoPendding(): number {
+
+    return this._todo.getValue().filter(todos => todos.status == status.PENDDING && todos.userId == this.currentUser.id).length;
+  }
+
+  getNoFavourites(): number {
+
+
+    return this._todo.getValue().filter(todos => todos.status == status.FAVOURITE && todos.userId == this.currentUser.id).length;
+  }
+
+
+  getNoDeleted(): number {
+
+    return this._todo.getValue().filter(todos => todos.status == status.DELETED && todos.userId == this.currentUser.id).length;
+  }
   getPendding() {
 
     return this._todo.getValue().filter(todos => todos.status == status.PENDDING && todos.userId == this.currentUser.id);

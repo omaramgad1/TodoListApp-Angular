@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-
+  isLogged: boolean = false;
 
   constructor(private _authService: AuthService, private _router: Router) {
   }
@@ -25,9 +25,10 @@ export class AuthGuard implements CanActivate {
 
     else {
       this._router.navigate(['/login']);
-      return false;
 
+      return false;
     }
+
   }
 
 } 

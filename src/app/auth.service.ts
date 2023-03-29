@@ -11,7 +11,20 @@ export class AuthService {
   data: any = localStorage.getItem("users")
   users: any[] = JSON.parse(this.data) || [];
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router) {
+
+    if (localStorage.getItem('currentUser') !== null) {
+      this.savecurrentuser()
+    }
+
+  }
+
+  savecurrentuser() {
+    const data: any = localStorage.getItem('currentUser');
+    let c: any = JSON.parse(data);
+    this.currentUser.next(c)
+
+  }
 
 
   login(formdata: any): boolean {

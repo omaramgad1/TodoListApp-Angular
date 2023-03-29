@@ -9,11 +9,15 @@ import { TodosService } from '../todos.service';
 export class TodoComponent {
 
   @Input() toDos: any[] = [];
+  todo!: any;
   constructor(private _todosService: TodosService) {
 
 
   }
+  saveToSend(todo: any): void {
+    this.todo = todo;
 
+  }
 
   complete(toDo: any): void {
 
@@ -31,8 +35,9 @@ export class TodoComponent {
     this._todosService.backToPendding(toDo)
 
   }
-  removeTodo(toDo: any) {
-    this._todosService.removeTodo(toDo)
+  removeTodo() {
+    this._todosService.removeTodo(this.todo)
+
 
   }
 }

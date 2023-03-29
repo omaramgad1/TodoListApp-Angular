@@ -7,6 +7,7 @@ import { FavouritesComponent } from './favourites/favourites.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
+import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { TodosComponent } from './todos/todos.component';
 
 const routes: Routes = [
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'favourite-todos', canActivate: [AuthGuard], component: FavouritesComponent },
   { path: 'deleted-todos', canActivate: [AuthGuard], component: DeletedTodosComponent },
   { path: 'completed-todos', canActivate: [AuthGuard], component: CompletedTodosComponent },
+  { path: 'todoDetails/:id', canActivate: [AuthGuard], component: TodoDetailsComponent },
+
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: NotFoundComponent },

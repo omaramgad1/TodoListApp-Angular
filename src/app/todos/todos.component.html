@@ -11,7 +11,9 @@
     <div class="row text-center">
         <div class="col-12">
             <div class="input-group w-100 mb-2">
-                <input [(ngModel)]="inputToDoText" type="text"
+                <input
+                    [(ngModel)]="inputToDoText"(keyup.enter)="addToDo(inputToDoText)"
+                    type="text"
                     class="form-control" placeholder="Enter Todo.."
                     aria-label="Enter Todo..."
                     aria-describedby="button-addon2">

@@ -1,1 +1,35 @@
-<p>todo-details works!</p>
+<div class="container m-5 p-10 rounded mx-auto bg-dark ">
+    <div class="row text-center">
+        <div class="col-12">
+            <table class="table border-primary table-light
+                table-bordered rounded rounded-3 overflow-hidden">
+
+                <thead>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="col">User Id</th>
+                        <th scope="col">{{todo.userId}}</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Todo Id</th>
+                        <th scope="col">{{todo.id}}</th>
+                    </tr>
+
+                    <tr>
+                        <th scope="col">Todo Title</th>
+                        <th scope="col">{{todo.title}}</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Todo Status</th>
+                        <th scope="col">{{this.todo.status == 0 ? "PENDDING" :
+                            this.todo.status == 2 ? " completed" :
+                            this.todo.status == 1 ? "Favourite" :
+                            this.todo.status == 3 ? "Deleted" : "none"}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

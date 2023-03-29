@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodosService } from '../todos.service';
+
 enum status {
   PENDDING,
   FAVOURITE,
@@ -24,7 +25,6 @@ export class TodosComponent {
 
     });
   }
-
 
 
   addToDo(inputToDoText: string) {
