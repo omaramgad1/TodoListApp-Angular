@@ -43,15 +43,29 @@
                 <p *ngIf="loginForm.get('password')?.errors?.['pattern']">password
                     must include upper and lower cases</p>
             </div>
+
+            <div class="d-flex justify-content-between">
+                <div class="p-2"> <a class="text-white-50 h6 " href="#!">Forgot
+                        password?</a></div>
+                <div class="p-2"></div>
+
+                <div class="p-2"><a class="text-white-50 h6 "
+                        routerLink="/register">
+                        SignUp?</a></div>
+            </div>
+
         </div>
 
-        <div class="d-flex flex-column mt-4">
 
+        <div class="d-flex flex-column mt-2">
             <button [disabled]="loginForm.invalid" type="submit"
                 class="btn btn-info btn-lg btn-block
                 text-white">Login</button>
         </div>
 
+        <div class="d-flex justify-content-end mt-2">
+
+        </div>
 
 
     </form>
